@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.reficio</groupId>
         <artifactId>soap-ws</artifactId>
-        <version>1.0.0-bi</version>
+        <version>1.0.1-bi</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -25,7 +25,7 @@
 
         <dependency>
             <groupId>org.reficio</groupId>
-            <artifactId>soap-builder</artifactId>
+            <artifactId>soap-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
