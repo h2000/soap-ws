@@ -5,7 +5,7 @@
     <groupId>org.reficio</groupId>
     <artifactId>soap-ws</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-bi</version>
     <name>soap-ws</name>
     <description>
         soap-ws is a lightweight and easy-to-use Java library to handle SOAP message generation and SOAP message transmission
@@ -22,6 +22,7 @@
         <gmaven.version>1.5</gmaven.version>
         <gmaven.provider.selection>2.0</gmaven.provider.selection>
         <groovy.version>2.1.2</groovy.version>
+        <additionalparam>-Xdoclint:none</additionalparam>
     </properties>
 
     <modules>
@@ -30,7 +31,7 @@
         <module>soap-builder</module>
         <module>soap-client</module>
         <module>soap-server</module>
-        <module>soap-it</module>
+        <!--<module>soap-it</module>-->
         <module>soap-examples</module>
         <module>soap-test</module>
     </modules>
@@ -182,62 +183,49 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
             <!--<plugin>-->
-            <!--<groupId>org.spockframework</groupId>-->
-            <!--<artifactId>spock-maven</artifactId>-->
-            <!--<version>0.7-groovy-2.0</version>-->
-            <!--&lt;!&ndash;<executions>&ndash;&gt;-->
-            <!--&lt;!&ndash;<execution>&ndash;&gt;-->
-            <!--&lt;!&ndash;<goals>&ndash;&gt;-->
-            <!--&lt;!&ndash;<goal>find-specs</goal>&ndash;&gt;-->
-            <!--&lt;!&ndash;</goals>&ndash;&gt;-->
-            <!--&lt;!&ndash;</execution>&ndash;&gt;-->
-            <!--&lt;!&ndash;</executions>&ndash;&gt;-->
+                <!--<groupId>com.mycila.maven-license-plugin</groupId>-->
+                <!--<artifactId>maven-license-plugin</artifactId>-->
+                <!--<version>1.10.b1</version>-->
+                <!--<configuration>-->
+                    <!--<strictCheck>true</strictCheck>-->
+                    <!--<basedir>${basedir}</basedir>-->
+                    <!--<header>src/main/resources/license.txt</header>-->
+                    <!--<quiet>false</quiet>-->
+                    <!--<failIfMissing>true</failIfMissing>-->
+                    <!--<aggregate>false</aggregate>-->
+                    <!--<includes>-->
+                        <!--<include>src/**</include>-->
+                        <!--<include>**/test/**</include>-->
+                    <!--</includes>-->
+                    <!--<excludes>-->
+                        <!--<exclude>target/**</exclude>-->
+                        <!--<exclude>**/resources/**</exclude>-->
+                        <!--<exclude>.clover/**</exclude>-->
+                    <!--</excludes>-->
+                    <!--<useDefaultExcludes>true</useDefaultExcludes>-->
+                    <!--<mapping>-->
+                        <!--<jwc>XML_STYLE</jwc>-->
+                        <!--<application>XML_STYLE</application>-->
+                        <!--<myFileExtension>JAVADOC_STYLE</myFileExtension>-->
+                    <!--</mapping>-->
+                    <!--<useDefaultMapping>true</useDefaultMapping>-->
+                    <!--<properties>-->
+                        <!--<year>${project.inceptionYear}-2013</year>-->
+                        <!--<company>Reficio (TM) - Reestablish your software!</company>-->
+                    <!--</properties>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>compile</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
             <!--</plugin>-->
-
-
-            <plugin>
-                <groupId>com.mycila.maven-license-plugin</groupId>
-                <artifactId>maven-license-plugin</artifactId>
-                <version>1.10.b1</version>
-                <configuration>
-                    <strictCheck>true</strictCheck>
-                    <basedir>${basedir}</basedir>
-                    <header>src/main/resources/license.txt</header>
-                    <quiet>false</quiet>
-                    <failIfMissing>true</failIfMissing>
-                    <aggregate>false</aggregate>
-                    <includes>
-                        <include>src/**</include>
-                        <include>**/test/**</include>
-                    </includes>
-                    <excludes>
-                        <exclude>target/**</exclude>
-                        <exclude>**/resources/**</exclude>
-                        <exclude>.clover/**</exclude>
-                    </excludes>
-                    <useDefaultExcludes>true</useDefaultExcludes>
-                    <mapping>
-                        <jwc>XML_STYLE</jwc>
-                        <application>XML_STYLE</application>
-                        <myFileExtension>JAVADOC_STYLE</myFileExtension>
-                    </mapping>
-                    <useDefaultMapping>true</useDefaultMapping>
-                    <properties>
-                        <year>${project.inceptionYear}-2013</year>
-                        <company>Reficio (TM) - Reestablish your software!</company>
-                    </properties>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -390,10 +378,10 @@
             <id>reficio</id>
             <url>http://repo.reficio.org/maven/</url>
         </repository>
-        <repository>
-            <id>eviware</id>
-            <url>http://www.eviware.com/repository/maven2/</url>
-        </repository>
+        <!--<repository>-->
+            <!--<id>eviware</id>-->
+            <!--<url>http://www.eviware.com/repository/maven2/</url>-->
+        <!--</repository>-->
         <repository>
             <id>jboss</id>
             <url>https://repository.jboss.org/nexus/content/repositories/deprecated/</url>
@@ -540,11 +528,16 @@
     </profiles>
 
     <distributionManagement>
-        <repository>
+        <!-- <repository>
             <id>reficio</id>
             <name>Reficio Maven Repository</name>
             <url>scp://${reficio.server}/var/www/repo/maven</url>
-        </repository>
+        </repository> -->
+          <repository>
+            <id>bi-repo</id>
+            <name>BI REPO</name>   
+			<url>http://10.0.1.42:8080/nexus/content/repositories/releases/</url>
+		</repository>
     </distributionManagement>
 
 </project>
